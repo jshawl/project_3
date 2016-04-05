@@ -38,7 +38,7 @@
     var indexVM = this;
     indexVM.trips = Trip.all;
     indexVM.search = function() {
-      indexVM.places = Search.get({q:indexVM.query}, function(results){
+      indexVM.places = Search.query({q:indexVM.query}, function(results){
         indexVM.places = results;
         console.log(results)
       })

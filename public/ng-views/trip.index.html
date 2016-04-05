@@ -7,7 +7,7 @@
   <input type="text" name="Search" data-ng-model="indexVM.query" value="input">
 </form>
 
-{{ indexVM.places }}
+{{ indexVM.places[0][1].name }}
 
 <div ng-repeat="place in indexVM.places">
   {{ place.name }}
