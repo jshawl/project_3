@@ -1,18 +1,10 @@
-<h1> index file </h1>
-<div data-ng-repeat="trip in indexVM.trips" >
-  <p>{{trip.name}}</p>
-  <p>"Location:"{{trip.locations[0].place_id}}</p>
-
-  <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    ng-src=
-    {{"https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&origin=place_id:"+trip.locations[0].place_id+"&destination=place_id:ChIJadN45Ze3t4kRut2hxBYrjME&waypoints=place_id:ChIJ44vdnJe3t4kRSJTw3urQKFs&zoom=15"}} allowfullscreen>
-  </iframe>
-
-<div data-ng-repeat="trip in indexVM.trips">
-  <p><a data-ui-sref="tripShow({id: trip.id})">{{trip.name}}</a></p>
-  <p>{{trip.id}}</p>
-
+<div class="button">
+  <a data-ui-sref="tripNew">New Trip</a>
+</div>
+<div data-ng-repeat="trip in indexVM.trips" class="trip-preview">
+  <h3><a data-ui-sref="tripShow({id: trip.id})">{{trip.name}}</a></h3>
+  <div class="line-break"></div>
+  <div data-ng-repeat="location in trip.locations">
+    {{ location.name }}
+  </div>
 </div>

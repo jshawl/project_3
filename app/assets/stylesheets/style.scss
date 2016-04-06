@@ -1,0 +1,118 @@
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:400,700);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+@import url(https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+
+$cursive-title: 'Dancing Script', cursive;
+$subtitle: 'Pathway Gothic One', sans-serif;
+$body-text: 'Cantarell', sans-serif;
+$light-color: #fff;
+$light-color-transparent: rgba(255,255,255,.3);
+$trip-module: #1f1f1f;
+$dark-color: #000;
+$accent: #239dff;
+$lighter-accent: #83c8ff;
+
+body {
+  margin: 0;
+  background-color: $dark-color;
+  color: $light-color;
+}
+
+.logo {
+  position: absolute;
+}
+
+.logo_img {
+  max-width: 75px;
+}
+
+.hero {
+  width: 100%;
+  background: url('city_background.jpg');
+  background-size: cover;
+  background-position: bottom;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 75%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-family: $cursive-title;
+  color: $light-color;
+  font-size: 100px;
+  margin: 0;
+}
+
+h2 {
+  font-family: $subtitle;
+  color: $light-color;
+  margin: 0;
+}
+
+h3 {
+  font-family: $subtitle;
+  text-transform: uppercase;
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+
+  a:link, a:active, a:visited {
+    text-decoration: none;
+    color: $light-color;
+  }
+
+  a:hover {
+    color: $accent;
+    transition: .75s;
+  }
+}
+
+.line-break {
+  margin: 0 auto;
+  height: 1px;
+  background-color: $accent;
+  width: 25%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.button {
+  padding: 20px;
+  font-family: $subtitle;
+  text-transform: uppercase;
+  font-size: 25px;
+
+  a:active, a:link, a:visited {
+    border: 2px solid $light-color;
+    padding: 5px;
+    text-decoration: none;
+    color: $light-color;
+  }
+
+  a:hover {
+    background-color: $light-color-transparent;
+    transition: 1s;
+  }
+}
+
+.trip-preview {
+  font-family: $body-text;
+  font-size: 16px;
+  margin: 0 auto;
+  background-color: $trip-module;
+  width: 75%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 15px;
+}
