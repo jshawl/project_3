@@ -58,6 +58,7 @@ h2 {
   font-family: $subtitle;
   color: $light-color;
   margin: 0;
+  font-size: 30px;
 }
 
 h3 {
@@ -76,6 +77,13 @@ h3 {
     color: $accent;
     transition: .75s;
   }
+}
+
+h4 {
+  font-family: $subtitle;
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
 }
 
 .line-break {
@@ -115,4 +123,32 @@ h3 {
   border-radius: 5px;
   padding: 20px;
   margin-top: 15px;
+}
+
+.map {
+  padding: 15px;
+}
+
+.category {
+  font-style: italic;
+}
+
+input[type=text] {
+  width: 250px;
+  font-family: $body-text;
+  font-size: 14px;
+}
+
+.form-button {
+  font-family: $subtitle;
+  text-transform: uppercase;
+  background-color: $light-color;
+  border-radius: 2px;
+  font-size: 25px;
+  border: 0;
+}
+
+.form-button:hover {
+  background-color: $lighter-accent;
+  transition: 1s;
 }

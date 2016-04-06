@@ -1,29 +1,31 @@
-<h2>this is the show</h2>
+<div class="trip-preview">
+  <h2>{{tripShowVM.trip.name}}</h2>
+  <div class="line-break"></div>
+  <p>Category: <span class="category">{{tripShowVM.trip.category}}</span>
+  <div data-ng-repeat="place in tripShowVM.trip.locations">
+    <p>{{place.name}}</p>
+  </div>
 
-<p>{{tripShowVM.trip.id}}</p>
-<h2>{{tripShowVM.trip.name}}</h2>
-<div data-ng-repeat="place in tripShowVM.trip.locations">
-  <p>{{place.name}}</p>
-  <p>{{place.place_id}}</p>
+  <h4>Add a location:</h4>
 
-  <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    ng-src=
-    {{"https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&origin=place_id:"+place.place_id+"&destination=place_id:ChIJadN45Ze3t4kRut2hxBYrjME&waypoints=place_id:ChIJ44vdnJe3t4kRSJTw3urQKFs&zoom=15"}} allowfullscreen>
-  </iframe>
-</div>
+  <form data-ng-submit="tripShowVM.search()">
+    <input type="text" name="Search" data-ng-model="tripShowVM.query" value="input">
+  </form>
 
-<h2>add locations</h2>
+  <!-- {{ indexVM.places[0][1].name }} -->
+  <div ng-repeat="place in tripShowVM.places[0] track by $index">
+    {{ place.name }}
+    {{ place.vicinity }}
+    <button ng-click="tripShowVM.createLocation(tripShowVM.trip.id, place.name, place.geometry.location.lat, place.geometry.location.lng, place.place_id)">Save</button>
+  </div>
 
-<form data-ng-submit="tripShowVM.search()">
-  <input type="text" name="Search" data-ng-model="tripShowVM.query" value="input">
-</form>
-
-<!-- {{ indexVM.places[0][1].name }} -->
-<div ng-repeat="place in tripShowVM.places[0] track by $index">
-  {{ place.name }}
-  {{ place.vicinity }}
-  <button ng-click="tripShowVM.createLocation(tripShowVM.trip.id, place.name, place.geometry.location.lat, place.geometry.location.lng, place.place_id)">Save</button>
+  <div class="map">
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src=
+      "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&amp;origin=45.476112,-73.823152&amp;destination=45.800000,-73.823298&amp;mode=walking&amp;waypoints=45.47611153,-73.82315248%7C45.56712414,-73.82331277%7C45.6,-73.82318975%7C45.7,-73.83250646%7C45.8,-73.82329847&amp;center=45.47611153,-73.82315248&amp;zoom=14" allowfullscreen>
+    </iframe>
+  </div>
 </div>
