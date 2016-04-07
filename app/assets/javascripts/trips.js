@@ -79,7 +79,7 @@
     var indexVM = this;
     indexVM.trips = Trip.all;
   };
-
+https://auto-pilot.herokuapp.com/#/trips
   function Trip( $resource ){
     var Trip = $resource( "https://auto-pilot.herokuapp.com/trips/:id.json", {}, {
       update: {
