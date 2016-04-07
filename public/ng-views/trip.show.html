@@ -1,6 +1,9 @@
 <div class="trip-preview">
   <h2>{{tripShowVM.trip.name}}</h2>
   <div class="category"><strong>Category:</strong> {{tripShowVM.trip.category}}</div>
+  <div class="button">
+    <a data-ui-sref="tripEdit({id: tripShowVM.trip.id})">Edit Trip</a>
+  </div>
   <div class="line-break"></div>
   <div data-ng-repeat="place in tripShowVM.trip.locations">
     <p>{{place.name}}</p>
@@ -25,7 +28,6 @@
      frameborder="0" style="border:0"
      ng-src=
      {{tripShowVM.mapUrl}} allowfullscreen>
-
    </iframe>
 
   </div>
