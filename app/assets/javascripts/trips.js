@@ -66,7 +66,6 @@
     showVM.search = function() {
       showVM.places = Search.query({q:showVM.query}, function(results){
         showVM.places = results;
-        console.log(results)
       })
     };
     showVM.location = new LocationFactory();
@@ -107,7 +106,6 @@
     var Location = $resource( "http://localhost:3000/trips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
       update: {
         method: "PUT"
-        // isArray: true
       }
     });
     return Location;
@@ -168,9 +166,7 @@
       }
     }
   }
-  // function locationNewControllerFunction( Trip, $stateParams, LocationFactory ){
-  //
-  // }
+
   function tripFormFunction(){
 
   }
