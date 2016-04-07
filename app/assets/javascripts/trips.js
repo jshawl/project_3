@@ -65,6 +65,7 @@
     showVM.trip = Trip.get({id: $stateParams.id});
     showVM.search = function() {
       showVM.places = Search.query({q:showVM.query}, function(results){
+        console.log(showVM.places)
         showVM.places = results;
       })
     };

@@ -13,8 +13,11 @@
   </form>
 
   <div ng-repeat="place in tripShowVM.places[0] track by $index">
+    {{ place }}
     {{ place.name }}
     {{ place.vicinity }}
+    {{ place.lat}}
+    <img data-ng-src="{{place.photos}}">
     <button ng-click="tripShowVM.createLocation(tripShowVM.trip.id, place.name, place.geometry.location.lat, place.geometry.location.lng, place.place_id)">Save</button>
   </div>
 
