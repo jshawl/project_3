@@ -1,7 +1,7 @@
 <div class="trip-preview">
   <h2>{{tripShowVM.trip.name}}</h2>
+  <div class="category"><strong>Category:</strong> {{tripShowVM.trip.category}}</div>
   <div class="line-break"></div>
-  <p>Category: <span class="category">{{tripShowVM.trip.category}}</span>
   <div data-ng-repeat="place in tripShowVM.trip.locations">
     <p>{{place.name}}</p>
   </div>
@@ -12,7 +12,6 @@
     <input type="text" name="Search" data-ng-model="tripShowVM.query" value="input">
   </form>
 
-  <!-- {{ indexVM.places[0][1].name }} -->
   <div ng-repeat="place in tripShowVM.places[0] track by $index">
     {{ place.name }}
     {{ place.vicinity }}

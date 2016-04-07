@@ -130,13 +130,15 @@ h4 {
 }
 
 .category {
-  font-style: italic;
+  font-size: 12px;
+  padding: 5px;
 }
 
 input[type=text] {
   width: 250px;
   font-family: $body-text;
   font-size: 14px;
+  background-color: $light-color;
 }
 
 .form-button {
