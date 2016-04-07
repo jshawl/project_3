@@ -71,7 +71,7 @@
     showVM.location = new LocationFactory();
     showVM.createLocation = function(trip_id, name, lat, long, place_id){
       showVM.location.$save({trip_id: trip_id, name: name, lat: lat, long: long, place_id: place_id});
-      $window.location.reload()
+      $window.location.reload();
     }
   };
 
@@ -155,7 +155,6 @@
         }
         scope.update = function(){
           Trip.update({id: scope.trip.id}, scope.trip, function(response){
-            console.log("Success")
           })
         }
         scope.delete = function(){
