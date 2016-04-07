@@ -70,8 +70,8 @@
     };
     showVM.location = new LocationFactory();
     showVM.createLocation = function(trip_id, name, lat, long, place_id){
-      showVM.location.$save({trip_id: trip_id, name: name, lat: lat, long: long, place_id: place_id},
-      $window.location.reload());
+      showVM.location.$save({trip_id: trip_id, name: name, lat: lat, long: long, place_id: place_id});
+      $window.location.reload();
     }
   };
 
@@ -150,7 +150,6 @@
         scope.create = function(){
           Trip.save(scope.trip, function(response){
             Trip.all.push(response);
-            console.log("trip create success:", response);
             $state.go("tripShow", {id: response.id});
           });
         }
