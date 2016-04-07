@@ -6,7 +6,7 @@
     <p>{{place.name}}</p>
   </div>
 
-  <h4>Add a location:</h4>
+  <div class="category">Add a location:</div>
 
   <form data-ng-submit="tripShowVM.search()">
     <input type="text" name="Search" data-ng-model="tripShowVM.query" value="input">
@@ -20,11 +20,13 @@
 
   <div class="map">
     <iframe
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src=
-      "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&amp;origin=45.476112,-73.823152&amp;destination=45.800000,-73.823298&amp;mode=walking&amp;waypoints=45.47611153,-73.82315248%7C45.56712414,-73.82331277%7C45.6,-73.82318975%7C45.7,-73.83250646%7C45.8,-73.82329847&amp;center=45.47611153,-73.82315248&amp;zoom=14" allowfullscreen>
-    </iframe>
+     width="600"
+     height="450"
+     frameborder="0" style="border:0"
+     ng-src=
+     {{tripShowVM.mapUrl}} allowfullscreen>
+
+   </iframe>
+
   </div>
 </div>
