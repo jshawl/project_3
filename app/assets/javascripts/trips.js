@@ -79,9 +79,9 @@
     var indexVM = this;
     indexVM.trips = Trip.all;
   };
-https://auto-pilot.herokuapp.com/#/trips
+
   function Trip( $resource ){
-    var Trip = $resource( "https://auto-pilot.herokuapp.com/trips/:id.json", {}, {
+    var Trip = $resource( "http://localhost:3000/trips/:id.json", {}, {
       update: {
         method: "PUT",
         isArray: true
@@ -92,7 +92,7 @@ https://auto-pilot.herokuapp.com/#/trips
   };
 
   function SearchFactory( $resource ){
-    var Search = $resource( "https://auto-pilot.herokuapp.com/trips/1/locations/search", {}, {
+    var Search = $resource( "http://localhost:3000/trips/1/locations/search", {}, {
       query: {
         method: "GET",
         isArray: true
@@ -103,7 +103,7 @@ https://auto-pilot.herokuapp.com/#/trips
   };
 
   function LocationFactory( $resource ){
-    var Location = $resource( "https://auto-pilot.herokuapp.comtrips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
+    var Location = $resource( "http://localhost:3000/trips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
       update: {
         method: "PUT"
       }
