@@ -176,7 +176,7 @@
 
   function generateMapURL(args) {
     // [...args] makes a new array so that we don't  mutate the data.
-    args = [...args];
+    args = [...args]
     var string = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
     if (args.length === 1 ){
       console.log("arg 1")
