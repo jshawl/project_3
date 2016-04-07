@@ -81,7 +81,7 @@
   };
 
   function Trip( $resource ){
-    var Trip = $resource( "http://localhost:3000/trips/:id.json", {}, {
+    var Trip = $resource( "https://auto-pilot.herokuapp.com/trips/:id.json", {}, {
       update: {
         method: "PUT",
         isArray: true
@@ -92,7 +92,7 @@
   };
 
   function SearchFactory( $resource ){
-    var Search = $resource( "http://localhost:3000/trips/1/locations/search", {}, {
+    var Search = $resource( "https://auto-pilot.herokuapp.com/trips/1/locations/search", {}, {
       query: {
         method: "GET",
         isArray: true
@@ -103,7 +103,7 @@
   };
 
   function LocationFactory( $resource ){
-    var Location = $resource( "http://localhost:3000/trips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
+    var Location = $resource( "https://auto-pilot.herokuapp.comtrips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
       update: {
         method: "PUT"
       }
@@ -177,7 +177,7 @@
   function generateMapURL(args) {
     // [...args] makes a new array so that we don't  mutate the data.
     args = [...args];
-    var string = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
+    var string = "http://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
     if (args.length === 1 ){
       console.log("arg 1")
       return string+="origin=place_id:"+args[0].place_id+"&destination=place_id:"+args[0].place_id
