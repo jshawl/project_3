@@ -177,7 +177,7 @@
   function generateMapURL(args) {
     // [...args] makes a new array so that we don't  mutate the data.
     args = [...args];
-    var string = "http://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
+    var string = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
     if (args.length === 1 ){
       console.log("arg 1")
       return string+="origin=place_id:"+args[0].place_id+"&destination=place_id:"+args[0].place_id
