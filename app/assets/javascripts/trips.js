@@ -51,6 +51,7 @@
   .directive("tripForm",[
     "Trip",
     "$state",
+    "$window",
     tripFormDirectiveFunction
   ]);
 
@@ -138,7 +139,7 @@
       controllerAs: "tripShowVM"
     })
   };
-  function tripFormDirectiveFunction(Trip, $state){
+  function tripFormDirectiveFunction(Trip, $state, $window){
     return{
       templateUrl: "/ng-views/_trip_form.html",
       restrict: "C",
@@ -155,11 +156,12 @@
         }
         scope.update = function(){
           Trip.update({id: scope.trip.id}, scope.trip, function(response){
+            $state.go("tripShow", {id: response.id});
           })
         }
         scope.delete = function(){
           Trip.delete({id: scope.trip.id}, scope.trip, function(response){
-            console.log("Success")
+            $state.go("tripIndex");
           })
         }
       }
@@ -200,4 +202,10 @@
 
     return string+="origin=place_id:"+first.place_id+"&destination=place_id:"+last.place_id+wayPoints;
   }
+  // 
+  // function hideMap(place){
+  //   if (place == undefined) {
+  //     document.body.querySelector(".map").classList.add("display-none");
+  //   }
+  // }
 })();
