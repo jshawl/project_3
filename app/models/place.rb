@@ -1,5 +1,3 @@
-require 'httparty'
-
 class Place
 
   def self.read type
