@@ -51,7 +51,6 @@
   .directive("tripForm",[
     "Trip",
     "$state",
-    "$window",
     tripFormDirectiveFunction
   ]);
 
@@ -80,9 +79,9 @@
     var indexVM = this;
     indexVM.trips = Trip.all;
   };
-
+https://auto-pilot.herokuapp.com/#/trips
   function Trip( $resource ){
-    var Trip = $resource( "/trips/:id.json", {}, {
+    var Trip = $resource( "https://auto-pilot.herokuapp.com/trips/:id.json", {}, {
       update: {
         method: "PUT",
         isArray: true
@@ -93,7 +92,7 @@
   };
 
   function SearchFactory( $resource ){
-    var Search = $resource( "/trips/1/locations/search", {}, {
+    var Search = $resource( "https://auto-pilot.herokuapp.com/trips/1/locations/search", {}, {
       query: {
         method: "GET",
         isArray: true
@@ -104,7 +103,7 @@
   };
 
   function LocationFactory( $resource ){
-    var Location = $resource( "/trips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
+    var Location = $resource( "https://auto-pilot.herokuapp.comtrips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
       update: {
         method: "PUT"
       }
@@ -139,7 +138,7 @@
       controllerAs: "tripShowVM"
     })
   };
-  function tripFormDirectiveFunction(Trip, $state, $window){
+  function tripFormDirectiveFunction(Trip, $state){
     return{
       templateUrl: "/ng-views/_trip_form.html",
       restrict: "C",
@@ -156,12 +155,11 @@
         }
         scope.update = function(){
           Trip.update({id: scope.trip.id}, scope.trip, function(response){
-            $state.go("tripShow", {id: response.id});
           })
         }
         scope.delete = function(){
           Trip.delete({id: scope.trip.id}, scope.trip, function(response){
-            $state.go("tripIndex");
+            console.log("Success")
           })
         }
       }
@@ -178,9 +176,8 @@
 
   function generateMapURL(args) {
     // [...args] makes a new array so that we don't  mutate the data.
-    // args = [...args];
-    var args = args.slice();
-    var string = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
+    args = [...args];
+    var string = "http://www.google.com/maps/embed/v1/directions?key=AIzaSyAg39LEeoWxSherOtvNqnYGg24ojPJFJDM&";
     if (args.length === 1 ){
       console.log("arg 1")
       return string+="origin=place_id:"+args[0].place_id+"&destination=place_id:"+args[0].place_id
@@ -202,10 +199,4 @@
 
     return string+="origin=place_id:"+first.place_id+"&destination=place_id:"+last.place_id+wayPoints;
   }
-  // 
-  // function hideMap(place){
-  //   if (place == undefined) {
-  //     document.body.querySelector(".map").classList.add("display-none");
-  //   }
-  // }
 })();
