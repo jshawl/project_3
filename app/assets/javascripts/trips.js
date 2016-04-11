@@ -81,7 +81,7 @@
   };
 
   function Trip( $resource ){
-    var Trip = $resource( "https://auto-pilot.herokuapp.com/trips/:id.json", {}, {
+    var Trip = $resource( "/trips/:id.json", {}, {
       update: {
         method: "PUT",
         isArray: true
@@ -92,7 +92,7 @@
   };
 
   function SearchFactory( $resource ){
-    var Search = $resource( "https://auto-pilot.herokuapp.com/trips/1/locations/search", {}, {
+    var Search = $resource( "/trips/1/locations/search", {}, {
       query: {
         method: "GET",
         isArray: true
@@ -103,7 +103,7 @@
   };
 
   function LocationFactory( $resource ){
-    var Location = $resource( "https://auto-pilot.herokuapp.comtrips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
+    var Location = $resource( "/trips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
       update: {
         method: "PUT"
       }
