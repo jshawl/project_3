@@ -12,6 +12,7 @@ $trip-module: #242424;
 $dark-color: #000;
 $accent: #239dff;
 $lighter-accent: #83c8ff;
+// excellent job using sass!!
 
 body {
   margin: 0;
@@ -29,11 +30,11 @@ body {
 
 .hero {
   width: 100%;
-  background: url('city_background.jpg');
+  background: url('city_background.jpg'); // or asset_url
   background-size: cover;
   background-position: bottom;
   height: 250px;
-  display: flex;
+  display: flex; // nice!!!
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -158,3 +159,5 @@ input[type=text] {
 .display-none {
   display: none;
 }
+
+// this css is beautiful

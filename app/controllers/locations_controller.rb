@@ -8,6 +8,7 @@ class LocationsController < ApplicationController
     @location = Location.create location_params
     render json: @location
   end
+  # and add delete method
 
   private
 

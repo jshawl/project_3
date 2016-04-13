@@ -54,6 +54,8 @@
     "$window",
     tripFormDirectiveFunction
   ]);
+  // having everything in one file makes this much easier to read/ follow
+  // excellent!
 
   function showCtrlFunction( Search, Trip, $stateParams, LocationFactory, $window ){
     var showVM = this;
@@ -72,8 +74,14 @@
     showVM.location = new LocationFactory();
     showVM.createLocation = function(trip_id, name, lat, long, place_id){
       showVM.location.$save({trip_id: trip_id, name: name, lat: lat, long: long, place_id: place_id});
-      $window.location.reload();
+      $window.location.reload(); // what problem does this fix?
+      // maybe use state.go here
     }
+    // also: re delete functionality:
+    // showVM.delete = function(locationId){
+    //  LocationFactory.delete(id: locationId)
+    // }
+    // and add ng-click="showVM.delete()" in view
   };
 
   function indexControllerFunction( Search, Trip ){
@@ -94,6 +102,9 @@
 
   function SearchFactory( $resource ){
     var Search = $resource( "/trips/1/locations/search", {}, {
+    // is there a reason 1 is hardcoded here?
+    // maybe there's an issue with your routes
+    // or should be /locations/search
       query: {
         method: "GET",
         isArray: true
@@ -104,6 +115,7 @@
   };
 
   function LocationFactory( $resource ){
+    // whoah did not know about @trip_id - how does this work?
     var Location = $resource( "/trips/:trip_id/locations/:id", {trip_id: "@trip_id"}, {
       update: {
         method: "PUT"
@@ -169,7 +181,7 @@
   }
 
   function tripFormFunction(){
-
+    // remove unused code
   }
 
   function tripEditControllerFunction( Trip, $stateParams ) {
@@ -201,9 +213,11 @@
     wayPoints += "place_id:"+args[args.length-1].place_id
 
     return string+="origin=place_id:"+first.place_id+"&destination=place_id:"+last.place_id+wayPoints;
+    // such a cool function!!
   }
   // 
   // function hideMap(place){
+  //   remove commented out code
   //   if (place == undefined) {
   //     document.body.querySelector(".map").classList.add("display-none");
   //   }

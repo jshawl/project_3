@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
 
   before_action do
+    # typically this is in a named method, but this works!
     if params[:id]
       @trip = Trip.find(params[:id])
     end
@@ -8,8 +9,8 @@ class TripsController < ApplicationController
   def index
     @trips = Trip.all
     respond_to do |format|
-    format.html
-    format.json{ render json: @trips, status: :ok}
+      format.html
+      format.json{ render json: @trips, status: :ok}
     end
   end
   def show
@@ -35,6 +36,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.destroy
     render json: @trip
+    # or render nothing: true
   end
 
   private

@@ -7,6 +7,7 @@
   <div class="line-break"></div>
   <div data-ng-repeat="place in tripShowVM.trip.locations">
     <p>{{place.name}}</p>
+    <a ng-click="tripShowVM.delete(place.id)">Delete</a> <!-- will this work? -->
   </div>
 
   <div class="category">Add a location:</div>

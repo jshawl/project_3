@@ -22,6 +22,7 @@ class Place
   end
 
   # def self.place_details
+  # remove unused code
   #   # we are looping through all of the place_ids and then calling the Google API in order to retrieve the Place's name, which we are storing in the @place_name instance varialbe array
   #   @place_name = []
   #   @place_ids.each do |id|

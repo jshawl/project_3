@@ -1,4 +1,5 @@
 # class Google
+# remove unused code
 #   attr_reader :results, :geometry, :id, :place_id
 #
 #   def initialize(name)

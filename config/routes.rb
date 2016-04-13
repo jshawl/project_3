@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       get "search", on: :collection
     end
   end
-  resources :locations, except: [:index, :new, :create]
+  # i think this fixes your hardcoded id issue
+  resources :locations, except: [:index, :new, :create] do
+      get "search", on: :collection
+  end
   root to:"trips#home"
 end
